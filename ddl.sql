@@ -4,6 +4,14 @@ CREATE TABLE Programs (
     program_name VARCHAR(100) NOT NULL
 );
 
+-- Sample Data for Programs
+INSERT INTO Programs (program_name) VALUES
+('Bachelor of Science in Information Systems'),
+('Bachelor of Science in Mathematics'),
+('Bachelor of Arts in Communication'),
+('Bachelor of Science in Nursing'),
+('Bachelor of Physical Education');
+
 -- 2. Students Table
 CREATE TABLE Students (
     student_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -15,6 +23,29 @@ CREATE TABLE Students (
     program_id INT NOT NULL,
     FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
+
+-- Sample Data for Students
+INSERT INTO Students (first_name, last_name, birth_date, gender, email, program_id) VALUES
+('Neil Jay', 'Lacandazo', '2004-10-20', 'Male', 'neiljay.lacandazo@mcst.edu.ph', 1),
+('Jane', 'Smith', '1999-05-20', 'Female', 'jane.smith@mcst.edu.ph', 2),
+('Alice', 'Johnson', '2001-03-10', 'Female', 'alice.johnson@mcst.edu.ph', 3),
+('Bob', 'Brown', '2000-07-25', 'Male', 'bob.brown@mcst.edu.ph', 4),
+('Charlie', 'Davis', '1998-11-30', 'Other', 'charlie.davis@mcst.edu.ph', 5),
+('Emily', 'Wilson', '2002-02-14', 'Female', 'emily.wilson@mcst.edu.ph', 1),
+('Michael', 'Taylor', '1999-09-05', 'Male', 'michael.taylor@mcst.edu.ph', 2),
+('Sarah', 'Anderson', '2000-12-12', 'Female', 'sarah.anderson@mcst.edu.ph', 3),
+('David', 'Thomas', '2001-06-18', 'Male', 'david.thomas@mcst.edu.ph', 4),
+('Sophia', 'Moore', '1998-08-22', 'Female', 'sophia.moore@mcst.edu.ph', 5),
+('James', 'Martin', '2000-04-01', 'Male', 'james.martin@mcst.edu.ph', 1),
+('Olivia', 'Lee', '1999-10-10', 'Female', 'olivia.lee@mcst.edu.ph', 2),
+('Ethan', 'Harris', '2001-01-30', 'Male', 'ethan.harris@mcst.edu.ph', 3),
+('Isabella', 'Clark', '2002-03-25', 'Female', 'isabella.clark@mcst.edu.ph', 4),
+('Liam', 'Lewis', '1998-07-15', 'Male', 'liam.lewis@mcst.edu.ph', 5),
+('Mia', 'Walker', '2000-11-20', 'Female', 'mia.walker@mcst.edu.ph', 1),
+('Noah', 'Hall', '1999-06-05', 'Male', 'noah.hall@mcst.edu.ph', 2),
+('Ava', 'Allen', '2001-09-12', 'Female', 'ava.allen@mcst.edu.ph', 3),
+('William', 'Young', '2002-05-18', 'Male', 'william.young@mcst.edu.ph', 4),
+('Emma', 'King', '1998-12-25', 'Female', 'emma.king@mcst.edu.ph', 5);
 
 -- 3. Courses Table
 CREATE TABLE Courses (
