@@ -1,3 +1,9 @@
+-- This script creates a database for student record management system
+CREATE DATABASE student_record_management_snippet;
+
+-- Use the created database
+USE student_record_management_snippet;
+
 -- student status table
 CREATE TABLE student_status (
     student_status_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,14 +76,6 @@ CREATE TABLE professors (
     email VARCHAR(100) UNIQUE,
     program_id INT,
     FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE SET NULL
-);
-
--- courses table
-CREATE TABLE courses (
-    course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_name VARCHAR(100) NOT NULL,
-    professor_id INT NOT NULL,
-    FOREIGN KEY (professor_id) REFERENCES professors (professor_id) ON DELETE SET NULL
 );
 
 -- remarks table

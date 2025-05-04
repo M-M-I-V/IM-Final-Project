@@ -111,6 +111,39 @@ INSERT INTO enrollments (student_id, program_id, academic_year, semester, enroll
 (29, 29, '2024-2025', '2nd', '2025-01-29', 2),
 (30, 30, '2024-2025', '2nd', '2025-01-30', 1);
 
+-- Sample data for professors
+INSERT INTO professors (last_name, first_name, middle_name, birthdate, gender, email, program_id) VALUES
+('Smith', 'John', 'A', '1980-01-15', 'Male', 'john.smith@mcst.edu.ph', 1),
+('Johnson', 'Emily', 'B', '1985-02-20', 'Female', 'emily.johnson@mcst.edu.ph', 2),
+('Williams', 'Michael', 'C', '1978-03-10', 'Male', 'michael.williams@mcst.edu.ph', 3),
+('Brown', 'Sarah', 'D', '1990-04-25', 'Female', 'sarah.brown@mcst.edu.ph', 4),
+('Jones', 'David', 'E', '1982-05-30', 'Male', 'david.jones@mcst.edu.ph', 5),
+('Garcia', 'Laura', 'F', '1987-06-15', 'Female', 'laura.garcia@mcst.edu.ph', 6),
+('Martinez', 'James', 'G', '1975-07-20', 'Male', 'james.martinez@mcst.edu.ph', 7),
+('Hernandez', 'Sophia', 'H', '1992-08-05', 'Female', 'sophia.hernandez@mcst.edu.ph', 8),
+('Lopez', 'Daniel', 'I', '1983-09-10', 'Male', 'daniel.lopez@mcst.edu.ph', 9),
+('Gonzalez', 'Olivia', 'J', '1988-10-15', 'Female', 'olivia.gonzalez@mcst.edu.ph', 10),
+('Wilson', 'Ethan', 'K', '1979-11-20', 'Male', 'ethan.wilson@mcst.edu.ph', 11),
+('Anderson', 'Emma', 'L', '1991-12-25', 'Female', 'emma.anderson@mcst.edu.ph', 12),
+('Thomas', 'Alexander', 'M', '1984-01-10', 'Male', 'alexander.thomas@mcst.edu.ph', 13),
+('Taylor', 'Isabella', 'N', '1986-02-15', 'Female', 'isabella.taylor@mcst.edu.ph', 14),
+('Moore', 'Matthew', 'O', '1981-03-20', 'Male', 'matthew.moore@mcst.edu.ph', 15),
+('Jackson', 'Ava', 'P', '1989-04-25', 'Female', 'ava.jackson@mcst.edu.ph', 16),
+('Martin', 'Christopher', 'Q', '1977-05-30', 'Male', 'christopher.martin@mcst.edu.ph', 17),
+('Lee', 'Mia', 'R', '1993-06-15', 'Female', 'mia.lee@mcst.edu.ph', 18),
+('Perez', 'Joshua', 'S', '1980-07-20', 'Male', 'joshua.perez@mcst.edu.ph', 19),
+('Thompson', 'Amelia', 'T', '1985-08-05', 'Female', 'amelia.thompson@mcst.edu.ph', 20),
+('White', 'Andrew', 'U', '1976-09-10', 'Male', 'andrew.white@mcst.edu.ph', 21),
+('Harris', 'Charlotte', 'V', '1990-10-15', 'Female', 'charlotte.harris@mcst.edu.ph', 22),
+('Sanchez', 'Joseph', 'W', '1983-11-20', 'Male', 'joseph.sanchez@mcst.edu.ph', 23),
+('Clark', 'Harper', 'X', '1987-12-25', 'Female', 'harper.clark@mcst.edu.ph', 24),
+('Ramirez', 'Benjamin', 'Y', '1978-01-10', 'Male', 'benjamin.ramirez@mcst.edu.ph', 25),
+('Lewis', 'Ella', 'Z', '1992-02-15', 'Female', 'ella.lewis@mcst.edu.ph', 26),
+('Robinson', 'Samuel', 'AA', '1981-03-20', 'Male', 'samuel.robinson@mcst.edu.ph', 27),
+('Walker', 'Grace', 'BB', '1986-04-25', 'Female', 'grace.walker@mcst.edu.ph', 28),
+('Young', 'Henry', 'CC', '1979-05-30', 'Male', 'henry.young@mcst.edu.ph', 29),
+('Allen', 'Victoria', 'DD', '1988-06-15', 'Female', 'victoria.allen@mcst.edu.ph', 30);
+
 -- Insert sample data for courses
 INSERT INTO courses (course_name) VALUES
 ('Introduction to Programming'),
