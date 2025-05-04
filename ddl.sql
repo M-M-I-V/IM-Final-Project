@@ -43,10 +43,24 @@ CREATE TABLE enrollments (
     FOREIGN KEY (enrollment_status_id) REFERENCES enrollment_status(enrollment_status_id)
 );
 
+-- professors table
+CREATE TABLE professors (
+    professor_id INT AUTO_INCREMENT PRIMARY KEY,
+    last_name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    middle_name VARCHAR(50),
+    birthdate DATE,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE SET NULL
+);
+
 -- courses table
 CREATE TABLE courses (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_name VARCHAR(100) NOT NULL
+    course_name VARCHAR(100) NOT NULL,
+    professor_id INT NOT NULL,
+    FOREIGN KEY (professor_id) REFERENCES professors (professor_id) ON DELETE SET NULL
 );
 
 -- remarks table
@@ -65,16 +79,4 @@ CREATE TABLE academic_records (
     FOREIGN KEY (enrollment_id) REFERENCES enrollments(enrollment_id) ON DELETE CASCADE,
     FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
     FOREIGN KEY (remarks_id) REFERENCES remarks(remarks_id) ON DELETE SET NULL
-);
-
--- professors table
-CREATE TABLE professors (
-    professor_id INT AUTO_INCREMENT PRIMARY KEY,
-    last_name VARCHAR(50) NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
-    middle_name VARCHAR(50),
-    birthdate DATE,
-    gender ENUM('Male', 'Female', 'Other') NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE SET NULL
 );
