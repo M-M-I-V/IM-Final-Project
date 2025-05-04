@@ -78,6 +78,14 @@ CREATE TABLE professors (
     FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE SET NULL
 );
 
+-- courses table
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    professor_id INT NOT NULL,
+    FOREIGN KEY (professor_id) REFERENCES professors(professor_id) ON DELETE SET NULL
+);
+
 -- remarks table
 CREATE TABLE remarks (
     remarks_id INT AUTO_INCREMENT PRIMARY KEY,
