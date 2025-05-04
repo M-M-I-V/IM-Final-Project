@@ -66,3 +66,15 @@ CREATE TABLE academic_records (
     FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
     FOREIGN KEY (remarks_id) REFERENCES remarks(remarks_id) ON DELETE SET NULL
 );
+
+-- professors table
+CREATE TABLE professors (
+    professor_id INT AUTO_INCREMENT PRIMARY KEY,
+    last_name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    middle_name VARCHAR(50),
+    birthdate DATE,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE SET NULL
+);
