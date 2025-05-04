@@ -4,6 +4,10 @@ CREATE TABLE student_status (
     status_description VARCHAR(20) NOT NULL -- active, inactive, graduated, etc.
 );
 
+CREATE UNIQUE INDEX idx_student_status_description ON student_status(status_description);
+-- Add after existing students table indexes
+CREATE INDEX idx_students_name ON students(last_name, first_name);
+
 -- students table
 CREATE TABLE students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,17 +21,23 @@ CREATE TABLE students (
     FOREIGN KEY (student_status_id) REFERENCES student_status(student_status_id) ON DELETE SET NULL
 );
 
+CREATE INDEX idx_students_status_id ON students(student_status_id);
+
 -- programs table
 CREATE TABLE programs (
     program_id INT AUTO_INCREMENT PRIMARY KEY,
     program_name VARCHAR(100) NOT NULL
 );
 
+CREATE UNIQUE INDEX idx_programs_name ON programs(program_name);
+
 -- enrollment status table
 CREATE TABLE enrollment_status (
     enrollment_status_id INT AUTO_INCREMENT PRIMARY KEY,
     status_description VARCHAR(20) NOT NULL -- enrolled, graduated, dropped, etc.
 );
+
+CREATE UNIQUE INDEX idx_enrollment_status_description ON enrollment_status(status_description);
 
 -- enrollments table
 CREATE TABLE enrollments (
@@ -43,6 +53,12 @@ CREATE TABLE enrollments (
     FOREIGN KEY (enrollment_status_id) REFERENCES enrollment_status(enrollment_status_id)
 );
 
+CREATE INDEX idx_enrollments_student_id ON enrollments(student_id);
+CREATE INDEX idx_enrollments_program_id ON enrollments(program_id);
+CREATE INDEX idx_enrollments_status_id ON enrollments(enrollment_status_id);
+-- Add after enrollments table indexes
+CREATE INDEX idx_enrollments_date_semester ON enrollments(enrollment_date, academic_year, semester);
+
 -- professors table
 CREATE TABLE professors (
     professor_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,6 +68,7 @@ CREATE TABLE professors (
     birthdate DATE,
     gender ENUM('Male', 'Female', 'Other') NOT NULL,
     email VARCHAR(100) UNIQUE,
+    program_id INT,
     FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE SET NULL
 );
 
@@ -80,3 +97,6 @@ CREATE TABLE academic_records (
     FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
     FOREIGN KEY (remarks_id) REFERENCES remarks(remarks_id) ON DELETE SET NULL
 );
+
+-- Add after academic_records table creation
+CREATE INDEX idx_academic_records_grade ON academic_records(grade, remarks_id);
