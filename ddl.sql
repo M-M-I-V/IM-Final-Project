@@ -13,7 +13,6 @@ CREATE TABLE student_status (
 CREATE UNIQUE INDEX idx_student_status_description ON student_status(status_description);
 CREATE INDEX idx_students_name ON students(last_name, first_name);
 
--- students table
 CREATE TABLE students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     last_name VARCHAR(50) NOT NULL,
@@ -61,7 +60,6 @@ CREATE TABLE enrollments (
 CREATE INDEX idx_enrollments_student_id ON enrollments(student_id);
 CREATE INDEX idx_enrollments_program_id ON enrollments(program_id);
 CREATE INDEX idx_enrollments_status_id ON enrollments(enrollment_status_id);
--- Add after enrollments table indexes
 CREATE INDEX idx_enrollments_date_semester ON enrollments(enrollment_date, academic_year, semester);
 
 -- professors table
@@ -103,5 +101,4 @@ CREATE TABLE academic_records (
     FOREIGN KEY (remarks_id) REFERENCES remarks(remarks_id) ON DELETE SET NULL
 );
 
--- Add after academic_records table creation
 CREATE INDEX idx_academic_records_grade ON academic_records(grade, remarks_id);
