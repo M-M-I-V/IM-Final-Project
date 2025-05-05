@@ -11,7 +11,6 @@ CREATE TABLE student_status (
 );
 
 CREATE UNIQUE INDEX idx_student_status_description ON student_status(status_description);
--- Add after existing students table indexes
 CREATE INDEX idx_students_name ON students(last_name, first_name);
 
 -- students table
