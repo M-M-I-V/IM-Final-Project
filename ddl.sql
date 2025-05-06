@@ -79,7 +79,7 @@ CREATE TABLE professors (
 CREATE TABLE courses (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
     course_name VARCHAR(100) NOT NULL,
-    professor_id INT NOT NULL,
+    professor_id INT,
     FOREIGN KEY (professor_id) REFERENCES professors(professor_id) ON DELETE SET NULL
 );
 
